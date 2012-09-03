@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>beforeRunningCommand</key>
 	<string>saveModifiedFiles</string>
 	<key>command</key>
-	<string># TM_IGNORE_WARNINGS is a sequence of glob patterns of files in which to ignore
+	<string>#!/usr/bin/env bash
+[[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
+
+# TM_IGNORE_WARNINGS is a sequence of glob patterns of files in which to ignore
 # warnings.  Right now it doesn't support escaped ':" -- the separator character.
 # export TM_IGNORE_WARNINGS="mitchcode_*.h:*/MitchCode/*"
 
@@ -33,15 +36,23 @@ python -u "${TM_BUNDLE_SUPPORT}/bin/scons_html_wrapper.py" ${target}</string>
 	<string>word</string>
 	<key>input</key>
 	<string>none</string>
+	<key>inputFormat</key>
+	<string>text</string>
 	<key>keyEquivalent</key>
 	<string>@b</string>
 	<key>name</key>
-	<string>Build ...</string>
-	<key>output</key>
-	<string>showAsHTML</string>
+	<string>Build...</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>html</string>
+	<key>outputLocation</key>
+	<string>newWindow</string>
 	<key>scope</key>
-	<string>source.c, source.objc, source.c++, source.objc++, source.python, source.d</string>
+	<string>attr.project.scons - (text dyn.selection)</string>
 	<key>uuid</key>
 	<string>88F36C61-F809-4FCE-97AF-D36019891F31</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>

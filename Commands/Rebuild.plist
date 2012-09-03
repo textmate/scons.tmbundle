@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>beforeRunningCommand</key>
 	<string>saveModifiedFiles</string>
 	<key>command</key>
-	<string># TM_IGNORE_WARNINGS is a sequence of glob patterns of files in which to ignore
+	<string>#!/usr/bin/env bash
+[[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
+
+# TM_IGNORE_WARNINGS is a sequence of glob patterns of files in which to ignore
 # warnings.  Right now it doesn't support escaped ':" -- the separator character.
 # export TM_IGNORE_WARNINGS="mitchcode_*.h:*/MitchCode/*"
 
 # Look at other bundles to see if there are conventions for using 'defaults'.
 PREF_DOMAIN=com.macromates.textmate.scons_prefs
-lastTarget=`defaults read ${PREF_DOMAIN} last_target 2>/dev/null`
-lastBuildDir=`defaults read ${PREF_DOMAIN} last_build_dir 2>/dev/null`
+lastTarget=`defaults read ${PREF_DOMAIN} last_target 2&gt;/dev/null`
+lastBuildDir=`defaults read ${PREF_DOMAIN} last_build_dir 2&gt;/dev/null`
 
 if [ "x$lastBuildDir" != "x" ]; then
     cd ${lastBuildDir}
@@ -24,15 +27,23 @@ python -u "${TM_BUNDLE_SUPPORT}/bin/scons_html_wrapper.py" ${lastTarget}</string
 	<string>word</string>
 	<key>input</key>
 	<string>none</string>
+	<key>inputFormat</key>
+	<string>text</string>
 	<key>keyEquivalent</key>
 	<string>@b</string>
 	<key>name</key>
 	<string>Rebuild</string>
-	<key>output</key>
-	<string>showAsHTML</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>html</string>
+	<key>outputLocation</key>
+	<string>newWindow</string>
 	<key>scope</key>
-	<string>source.c, source.objc, source.c++, source.objc++, source.python, source.d</string>
+	<string>attr.project.scons - (text dyn.selection)</string>
 	<key>uuid</key>
 	<string>2CDB078C-78E9-4DDA-9DF9-6F18D1E92BAE</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>
