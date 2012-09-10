@@ -41,6 +41,8 @@ python -u "${TM_BUNDLE_SUPPORT}/bin/scons_html_wrapper.py" ${lastTarget}</string
 	<string>newWindow</string>
 	<key>scope</key>
 	<string>attr.project.scons - (text dyn.selection)</string>
+	<key>semanticClass</key>
+	<string>process.build.scons</string>
 	<key>uuid</key>
 	<string>2CDB078C-78E9-4DDA-9DF9-6F18D1E92BAE</string>
 	<key>version</key>

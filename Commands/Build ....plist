@@ -50,6 +50,8 @@ python -u "${TM_BUNDLE_SUPPORT}/bin/scons_html_wrapper.py" ${target}</string>
 	<string>newWindow</string>
 	<key>scope</key>
 	<string>attr.project.scons - (text dyn.selection)</string>
+	<key>semanticClass</key>
+	<string>process.build.scons</string>
 	<key>uuid</key>
 	<string>88F36C61-F809-4FCE-97AF-D36019891F31</string>
 	<key>version</key>
